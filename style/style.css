@@ -1,0 +1,101 @@
+body {
+    font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container > h1 > sup > a {
+    margin-left: -5px;
+}
+
+h5 {
+    margin-left: -5px;
+}
+
+.jumbotron {
+    padding: 5px 0;
+    border-radius: 0;
+}
+
+ol {
+    margin-left: -25px;
+}
+
+li.fold-panel > ul {
+    display: none;
+}
+
+li.fold-panel:hover > ul {
+    display: block;
+}
+
+.opacity {
+    opacity: 0;
+}
+
+sup {
+    margin-left: 3px;
+    cursor: pointer;
+    color: #bd4147;
+}
+
+.arrow-icon {
+    background-image: url(../images/top.png);
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-size: contain;
+}
+
+.scroll-top {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background-color: #42b983;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+}
+
+.app-footer {
+    padding: 1em 0;
+    margin: 1em 0 0 0;
+    text-align: center;
+    background: #E9ECEF;
+}
+
+div object {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .row .col-md-2, .row .col-md-3 {
+        border-right: none;
+    }
+
+    .scroll-top {
+        right: 20px;
+        bottom: 60px;
+        z-index: 9;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .col-md-3:not(:last-child), .col-md-2:not(:last-child) {
+        border-right: 1px dashed #bd4147;
+    }
+
+    .scroll-top {
+        right: 20px;
+        bottom: 60px;
+        z-index: 9;
+    }
+}

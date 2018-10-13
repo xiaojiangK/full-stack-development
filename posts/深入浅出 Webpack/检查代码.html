@@ -1,0 +1,595 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>检查代码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 16px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 3px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #eee;
+  color: #00d;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 16px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #42b983;
+  padding: 0 15px;
+  color: #777;
+  background: #f8f8f8;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table th {
+  font-weight: bold;
+  text-align: center !important;
+  background-color: #d9edf7;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #dff0d8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%;
+}
+
+p > img {
+    display: table;
+    margin: 0 auto;
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1 id="-">检查代码</h1>
+<p>检查代码和 Code Review 很相似，都是去审视提交的代码可能存在的问题。 但 Code Review 一般通过人去执行，而检查代码是通过机器去执行一些自动化的检查。 自动化的检查代码成本更低，实施代价更小。</p>
+<p>检查代码主要检查以下几项：</p>
+<ul>
+<li>代码风格：让项目成员强制遵守统一的代码风格，例如如何缩紧、如何写注释等，保障代码可读性，不把时间浪费在争论如何写代码更好看上；</li><li>潜在问题：分析出代码在运行过程中可能出现的潜在 Bug。</li></ul>
+<p>目前已经有成熟的工具可以检验诸如 JavaScript、TypeScript、CSS、SCSS 等常用语言。</p>
+<h2 id="-javascript">检查 JavaScript</h2>
+<p>目前最常用的 JavaScript 检查工具是 ESlint ，它不仅内置了大量常用的检查规则，还可以通过插件机制做到灵活扩展。</p>
+<p>ESlint 的使用很简单，在通过：<code>npm i -g eslint</code></p>
+<p>按照到全局后，再在项目目录下执行：<code>eslint init</code></p>
+<p>来新建一个 ESlint 配置文件 <code>.eslintrc</code>，该文件格式为 JSON。</p>
+<p>如果你想覆盖默认的检查规则，或者想加入新的检查规则，你需要修改该文件，例如使用以下配置：</p>
+<pre><code>{
+    // 从 eslint:recommended 中继承所有检查规则
+    &quot;extends&quot;: &quot;eslint:recommended&quot;,
+    // 再自定义一些规则     
+    &quot;rules&quot;: {
+        // 需要在每行结尾加 ;        
+        &quot;semi&quot;: [&quot;error&quot;, &quot;always&quot;],
+        // 需要使用 &quot;&quot; 包裹字符串         
+        &quot;quotes&quot;: [&quot;error&quot;, &quot;double&quot;]
+    }
+}
+</code></pre><p>写好配置文件后，再执行：</p>
+<pre><code>eslint yourfile.js
+</code></pre><p>去检查 <code>yourfile.js</code> 文件，如果你的文件没有通过检查，ESlint 会输出错误原因，例如： </p>
+<h2 id="-typescript">检查 TypeScript</h2>
+<p>TSLint 是一个和 ESlint 相似的 TypeScript 代码检查工具，区别在于 TSLint 只专注于检查 TypeScript 代码。</p>
+<p>TSLint 和 ESlint 的使用方法很相似，首先通过：<code>npm i -g tslint</code></p>
+<p>安装到全局，再去项目根目录下执行：<code>tslint --init</code></p>
+<p>生成配置文件<code>tslint.json</code>，在配置好后，再执行：<code>tslint yourfile.ts</code>去检查 <code>yourfile.ts</code> 文件。</p>
+<h2 id="-css">检查 CSS</h2>
+<p>stylelint 是目前最成熟的 CSS 检查工具，内置了大量检查规则的同时也提供插件机制让用户自定义扩展。 stylelint 基于 PostCSS，能检查任何 PostCSS 能解析的代码，诸如 SCSS、Less 等。</p>
+<p>首先通过<code>npm i -g stylelint</code></p>
+<p>安装到全局后，去项目根目录下新建 <code>.stylelintrc</code> 配置文件， 该配置文件格式为 JSON，其格式和 ESLint 的配置相似，例如：</p>
+<pre><code>{
+  // 继承 stylelint-config-standard 中的所有检查规则
+  &quot;extends&quot;: &quot;stylelint-config-standard&quot;,
+  // 再自定义检查规则  
+  &quot;rules&quot;: {
+    &quot;at-rule-empty-line-before&quot;: null
+  }
+}
+</code></pre><p>配置好后，再执行<code>stylelint &quot;yourfile.css&quot;</code>去检查 <code>yourfile.css</code> 文件。</p>
+<h2 id="-webpack-">结合 Webpack 检查代码</h2>
+<h3 id="-eslint">结合 ESLint</h3>
+<p><code>eslint-loader</code> 可以方便的把 ESLint 整合到 Webpack 中，使用方法如下：</p>
+<pre><code>module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        // node_modules 目录的下的代码不用检查
+        exclude: /node_modules/,
+        loader: &#39;eslint-loader&#39;,
+        // 把 eslint-loader 的执行顺序放到最前面，防止其它 Loader 把处理后的代码交给 eslint-loader 去检查
+        enforce: &#39;pre&#39;,
+      },
+    ],
+  },
+}
+</code></pre><p>接入 eslint-loader 后就能在控制台中看到 ESLint 输出的错误日志了。</p>
+<h3 id="-tslint">结合 TSLint</h3>
+<p><code>tslint-loader</code> 是一个和 <code>eslint-loader</code> 相似的 Webpack Loader， 能方便的把 TSLint 整合到 Webpack，其使用方法如下：</p>
+<pre><code>module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        // node_modules 目录的下的代码不用检查
+        exclude: /node_modules/,
+        loader: &#39;tslint-loader&#39;,
+        // 把 tslint-loader 的执行顺序放到最前面，防止其它 Loader 把处理后的代码交给 tslint-loader 去检查
+        enforce: &#39;pre&#39;,
+      },
+    ],
+  },
+}
+</code></pre><h3 id="-stylelint">结合 stylelint</h3>
+<p>StyleLintPlugin 能把 stylelint 整合到 Webpack，其使用方法很简单，如下：</p>
+<pre><code>const StyleLintPlugin = require(&#39;stylelint-webpack-plugin&#39;);
+
+module.exports = {
+  // ...
+  plugins: [
+    new StyleLintPlugin(),
+  ],
+}
+</code></pre><h2 id="-">一些建议</h2>
+<p>把代码检查功能整合到 Webpack 中会导致以下问题：</p>
+<ul>
+<li>由于执行检查步骤计算量大，整合到 Webpack 中会导致构建变慢；</li><li>在整合代码检查到 Webpack 后，输出的错误信息是通过行号来定位错误的，没有编辑器集成显示错误直观；</li></ul>
+<p>为了避免以上问题，还可以这样做：</p>
+<ul>
+<li>使用集成了代码检查功能的编辑器，让编辑器实时直观地显示错误；</li><li>把代码检查步骤放到代码提交时，也就是说在代码提交前去调用以上检查工具去检查代码，只有在检查都通过时才提交代码，这样就能保证提交到仓库的代码都是通过了检查的。</li></ul>
+<p>如果你的项目是使用 Git 管理，Git 提供了 Hook 功能能做到在提交代码前触发执行脚本。</p>
+<p>husky 可以方便快速地为项目接入 Git Hook， 执行<code>npm i -D husky</code></p>
+<p>安装 husky 时，husky 会通过 <code>Npm Script Hook</code> 自动配置好 Git Hook，你需要做的只是在 <code>package.json</code> 文件中定义几个脚本，方法如下：</p>
+<pre><code>{
+  &quot;scripts&quot;: {
+    // 在执行 git commit 前会执行的脚本  
+    &quot;precommit&quot;: &quot;npm run lint&quot;,
+    // 在执行 git push 前会执行的脚本  
+    &quot;prepush&quot;: &quot;lint&quot;,
+    // 调用 eslint、stylelint 等工具检查代码
+    &quot;lint&quot;: &quot;eslint &amp;&amp; stylelint&quot;
+  }
+}
+</code></pre><p><code>precommit</code> 和 <code>prepush</code> 你需要根据自己的情况选择一个，无需两个都设置。    </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

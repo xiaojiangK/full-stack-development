@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>第5章：字符串和正则表达式</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+  	font-size: 20px !important;
+  }
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 16px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h1:first-of-type {
+  font-size: 32px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d0782a;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #bd4147;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 3px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #eee;
+  color: #00d;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 16px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+blockquote {
+  border-left: 4px solid #42b983;
+  padding: 0 15px;
+  color: #d1d9e1;
+  background: #474949;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 30px;
+	
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px; 
+}
+
+table th {
+  font-weight: bold;
+  text-align: center !important;
+  background-color: #9ec68e;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #dff0d8;
+}
+
+/* IMAGES
+=============================================================================*/
+img {
+  max-width: 100%;
+}
+
+p > img {
+  display: table;
+  margin: 0 auto;
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+<base target=_blank>
+</head>
+<body>
+<h1 id="-5-">第5章：字符串和正则表达式</h1>
+<h2 id="-">字符串连接</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>array.join()</code></td>
+<td><code>str = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].join(&quot;&quot;);</code></td>
+</tr>
+<tr>
+<td><code>string.concat()</code></td>
+<td><code>str = &quot;a&quot;;str = str.concat(&quot;b&quot;, &quot;c&quot;);</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">加<code>+</code>和加等<code>+=</code>操作符</h2>
+<h2 id="firefox-">Firefox和编译器合并</h2>
+<p>当字符串通过这种方式合并在一起时，由于运行期没有中间字符串，所以花在连接过程的时间和内存可以减少到零。</p>
+<h2 id="-">数组项合并</h2>
+<p>Array.prototype.join方法将数组的所有元素合并成一个字符串，它接收一个字符串参数作为分隔符插入每个元素的中间。如果传入的是空字符，可以简单地将数组所有元素连接起来。</p>
+<h2 id="-string-prototype-concat-"><code>String.prototype.concat</code></h2>
+<p>字符串的原生方法<code>concat</code>能接收任意数量的参数，并将每一个参数附加到所调用的字符串上。</p>
+<pre><code>str = String.prototype.concat.apply(str, array);
+</code></pre><h2 id="-">正则表达式工作原理</h2>
+<p>正则表达式处理的基本步骤：</p>
+<p><strong>第一步：编译</strong></p>
+<p>当创建一个正则表达式（<code>正则直接量</code>或<code>RegExp</code>构造函数），浏览器验证表达式，然后转化为一个原生代码程序，用于执行匹配工作。</p>
+<p><strong>第二步：设置起始位置</strong></p>
+<p>当正则进入使用状态，首先要确定目标字符串的起始搜索位置。</p>
+<p><strong>第三步：匹配每个正则表达式字元</strong></p>
+<p>正则表达式知道起始位置，它会逐个检查文本和正则表达式模式。当一个特定的字元匹配失败时，正则表达式会尝试回溯到之前尝试匹配的位置上，然后尝试其他可能的路径。</p>
+<p><strong>第四步：匹配成功或失败</strong></p>
+<h2 id="-">理解回溯</h2>
+<p>正则表达式匹配目标字符串时，它从左到右逐个测试表达式的组成部分，确认是否能找到匹配项。如果遇到量词<code>*</code>，<code>+?</code>，<code>{2,}</code>，正则表达式需决定何时尝试匹配更多字符；如果遇到分支<code>|</code>，必须从可选项中选择一个尝试匹配。</p>
+<h3 id="-p89">分支与回溯P89</h3>
+<h3 id="-p90">重复与回溯P90</h3>
+<h3 id="-p91">回溯失控P91</h3>
+<h4 id="-p92">解决方案：具体化P92</h4>
+<h4 id="-p93">使用预查和反向引用的模拟原子组P93</h4>
+<p>原子组的写法<code>?&gt;...</code>，省略号表示任意正则表达式的模式，它是一种具有特殊反转性的非捕获组。一旦原子组中存在一个正则表达式，该组的任何回溯位置都会被丢弃。这为HTML正则表达式的回溯问题提供了一个更好的解决方案。</p>
+<h4 id="-p94">嵌套量词与回溯失控P94</h4>
+<p>嵌套量词是指量词出现在一个自身被重复量词修饰的组中。<code>(x+)*</code></p>
+<p><strong>变得更糟P95</strong></p>
+<h3 id="-">基准测试的说明</h3>
+<h3 id="-">更多提高正则表达式效率的方法</h3>
+<p><strong>关注如何让匹配更快失败</strong></p>
+<p>正则表达式慢的原因通常是匹配失败的过程慢，而不是匹配成功地过程慢。（通过增加回溯的次数去尝试所有的排列组合）</p>
+<p><strong>正则表达式以简单、必需的字元开始</strong></p>
+<p>一个正则表达式的起始标记应当尽可能快速地测试并排除明显不匹配的位置。好的起始标记通常是一个锚（<code>^</code>或<code>$</code>）、特定字符串（<code>x</code>或<code>\u263A</code>）、字符类（<code>[a-z]</code>或类似<code>\d</code>的速记符）和单词边界<code>\b</code>。</p>
+<p>避免以分组或选择字元开头，避免类似<code>/one|two/</code>的顶层分支，因为它强迫正则表达式识别多种起始字元。</p>
+<p><strong>使用量词模式，使它们后面的字元互斥</strong></p>
+<p>当字符与字元相邻或子表达式能够重叠匹配时，正则表达式尝试拆解文本的路径数量将会增加。为避免这种情况，尽量具体化匹配模式。比如表达<code>[^&quot;\s\n]</code>时不要使用<code>.*?</code>（它依赖回溯）</p>
+<p><strong>减少分支数量，缩小分支范围</strong></p>
+<p>分支使用竖线<code>|</code>可能要求在字符串的每个位置上测试所有分支选项，通常可以通过使用字符集和选项组件来减少对分支的需求，或将分支在正则表达式上的位置推后。</p>
+<p><strong>字符集比分支更快，因为它使用位向量，而不是回溯。</strong>当分支必不可少时，将常用的分支放到最前面。</p>
+<p><strong>使用非捕获组</strong></p>
+<p>如果不需要一个反向引用，可使用非捕获组来避免这些开销，比如使用<code>(?:...)</code>来替代<code>(...)</code>。</p>
+<p><strong>只捕获感兴趣的文本以减少后续处理</strong></p>
+<p><strong>暴露必需的字元</strong></p>
+<p><strong>使用合适的量词</strong></p>
+<p><strong>把正则表达式赋值给变量并重用它们</strong></p>
+<p><strong>将复杂的正则表达式拆分为简单的片段</strong></p>
+<p>避免在一个正则表达式中处理太多的任务，每个正则表达式只在最后的匹配结果中执行查找。</p>
+<h3 id="-">何时不用正则表达式</h3>
+<p><code>charAt()</code>方法读取特定位置上的字符。字符串方法<code>slice</code>、<code>substr</code>以及<code>substring</code>都可用在特定位置上提取并检查字符串的值。<code>indexOf</code>和<code>lastIndexOf</code>方法非常适合查找特定字符串的位置，或判断它们是否存在。</p>
+<h2 id="-">去除字符串首尾空白</h2>
+<h3 id="-">使用正则表达式去除首尾空白</h3>
+<pre><code>if (!String.prototype.trim) {
+    String.prototype.trim = function () {
+        return this.replace(/^\s+/, &#39;&#39;).replace(/\s+$/, &#39;&#39;);
+    }
+}
+</code></pre><h3 id="-p102">不使用正则表达式去除首尾空白P102</h3>
+<h3 id="-">混合解决方案</h3>
+<p>用正则表达式方法过滤头部空白，用非正则过滤尾部字符。</p>
+<pre><code>String.prototype.trim = function () {
+    var str = this.replace(/^\s+/, &quot;&quot;),
+        end = str.length - 1,
+        ws = /\s/;
+    while (ws.test(str.charAt(end))) {
+        end--;
+    }
+    return str.slice(0, end + 1);
+};
+</code></pre><p><strong>该方案在循环中使用一个正则来检查字符串的末尾字符是否为空白。</strong></p>
+<blockquote>
+<p>所有的<code>trim</code>方法的总趋势：在基于正则的方案中，字符串的总长度比修剪掉的字符数量更影响性能；而非正则从字符串末尾反向查找，不受字符串总长度的影响，但明显受到修剪空格的数量的影响。</p>
+</blockquote>
+<h2 id="-">小结</h2>
+<p>密集的字符串操作和草率地编写正则可能产生严重的性能问题，需要避免这些常见的陷阱：</p>
+<ul>
+<li>当连接数量巨大或尺寸巨大的字符串时，数组项合并时唯一在IE7级更早版本中性能合理的方法。</li><li>如果不考虑IE7及以下版本的性能，数组项合并时最慢的字符串连接方法之一。推荐使用简单的<code>+</code>和<code>+=</code>操作符替代，避免不必要的中间字符串。</li><li>回溯是正则匹配功能的基本组成部分，也是正则的低效之源。</li><li>回溯失控发生在正则本应该快速匹配的地方，但因为某些字符串匹配动作导致运行缓慢甚至浏览器崩溃。避免这个问题的方法是：使相邻的字元互斥，避免嵌套量词对同一字符串的相同部分多次匹配，通过重复利用预查的原子组去除不必要的回溯。</li><li>提高正则效率的各种技术手段有助于正则更快地匹配，并在非匹配位置上花更少的时间。</li><li>正则并不总是完成工作的最佳工具，尤其是只搜索字面字符串的时候。</li><li>使用两个简单的正则（一个用来去除头部空白，一个用来去除尾部空白）来处理大量字符串内容能提供一个简洁而跨浏览器的方法。从字符串末尾开始循环向前搜索第一个非空白字符，或将此技术和正则结合起来，会提供一个更好的替代方案，它很少受到字符串长度的影响。</li></ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,553 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>分割代码按需加载</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 16px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 3px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #eee;
+  color: #00d;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 16px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #42b983;
+  padding: 0 15px;
+  color: #777;
+  background: #f8f8f8;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px; 
+}
+
+table th {
+  font-weight: bold;
+  text-align: center !important;
+  background-color: #9ec68e;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #dff0d8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%;
+}
+
+p > img {
+    display: table;
+    margin: 0 auto;
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1 id="-">分割代码按需加载</h1>
+<h2 id="-">为什么需要按需加载</h2>
+<p>随着互联网的发展，一个网页需要承载的功能越来越多。 对于采用单页应用作为前端架构的网站来说，会面临着一个网页需要加载的代码量很大的问题，因为许多功能都集中的做到了一个 HTML 里。 这会导致网页加载缓慢、交互卡顿，用户体验将非常糟糕。</p>
+<p>导致这个问题的根本原因在于一次性的加载所有功能对应的代码，但其实用户每一阶段只可能使用其中一部分功能。 所以解决以上问题的方法就是用户当前需要用什么功能就只加载这个功能对应的代码，也就是所谓的按需加载。</p>
+<h2 id="-">如何使用按需加载</h2>
+<p>在给单页应用做按需加载优化时，一般采用以下原则：</p>
+<ul>
+<li>把整个网站划分成一个个小功能，再按照每个功能的相关程度把它们分成几类。</li><li>把每一类合并为一个 Chunk，按需加载对应的 Chunk。</li><li>对于用户首次打开你的网站时需要看到的画面所对应的功能，不要对它们做按需加载，而是放到执行入口所在的 Chunk 中，以降低用户能感知的网页加载时间。</li><li>对于个别依赖大量代码的功能点，例如依赖 <code>Chart.js</code> 去画图表、依赖 <code>flv.js</code> 去播放视频的功能点，可再对其进行按需加载。</li></ul>
+<p>被分割出去的代码的加载需要一定的时机去触发，也就是当用户操作到了或者即将操作到对应的功能时再去加载对应的代码。 被分割出去的代码的加载时机需要开发者自己去根据网页的需求去衡量和确定。</p>
+<p>由于被分割出去进行按需加载的代码在加载的过程中也需要耗时，你可以预言用户接下来可能会进行的操作，并提前加载好对应的代码，从而让用户感知不到网络加载时间。</p>
+<h2 id="-webpack-">用 Webpack 实现按需加载</h2>
+<p>Webpack 内置了强大的分割代码的功能去实现按需加载，实现起来非常简单。</p>
+<p>举个例子，现在需要做这样一个进行了按需加载优化的网页：</p>
+<ul>
+<li>网页首次加载时只加载 <code>main.js</code> 文件，网页会展示一个按钮，<code>main.js</code> 文件中只包含监听按钮事件和加载按需加载的代码。</li><li>当按钮被点击时才去加载被分割出去的 <code>show.js</code> 文件，加载成功后再执行 <code>show.js</code> 里的函数。</li></ul>
+<p>其中 <code>main.js</code> 文件内容如下：</p>
+<pre><code>window.document.getElementById(&#39;btn&#39;).addEventListener(&#39;click&#39;, function () {
+  // 当按钮被点击后才去加载 show.js 文件，文件加载成功后执行文件导出的函数
+  import(/* webpackChunkName: &quot;show&quot; */ &#39;./show&#39;).then((show) =&gt; {
+    show(&#39;Webpack&#39;);
+  })
+});
+</code></pre><p><code>show.js</code> 文件内容如下：</p>
+<pre><code>module.exports = function (content) {
+  window.alert(&#39;Hello &#39; + content);
+};
+</code></pre><p>代码中最关键的一句是 <code>import(/* webpackChunkName: &quot;show&quot; */ &#39;./show&#39;)</code>，Webpack 内置了对 <code>import(*)</code> 语句的支持，当 Webpack 遇到了类似的语句时会这样处理：</p>
+<ul>
+<li>以 <code>./show.js</code> 为入口新生成一个 Chunk；</li><li>当代码执行到 <code>import</code> 所在语句时才会去加载由 Chunk 对应生成的文件。</li><li><code>import</code> 返回一个 Promise，当文件加载成功时可以在 Promise 的 <code>then</code> 方法中获取到 <code>show.js</code> 导出的内容。</li></ul>
+<blockquote>
+<p>在使用 <code>import()</code> 分割代码后，你的浏览器并且要支持 Promise API 才能让代码正常运行， 因为 import() 返回一个 Promise，它依赖 Promise。对于不原生支持 Promise 的浏览器，你可以注入 Promise polyfill。</p>
+<p><code>/* webpackChunkName: &quot;show&quot; */</code> 的含义是为动态生成的 Chunk 赋予一个名称，以方便我们追踪和调试代码。 如果不指定动态生成的 Chunk 的名称，默认名称将会是 <code>[id].js</code>。 <code>/* webpackChunkName: &quot;show&quot; */</code> 是在 Webpack3 中引入的新特性，在 Webpack3 之前是无法为动态生成的 Chunk 赋予名称的。</p>
+</blockquote>
+<p>为了正确的输出在 /<em> webpackChunkName: “show” </em>/ 中配置的 ChunkName，还需要配置下 Webpack，配置如下：</p>
+<pre><code>module.exports = {
+  // JS 执行入口文件
+  entry: {
+    main: &#39;./main.js&#39;,
+  },
+  output: {
+    // 为从 entry 中配置生成的 Chunk 配置输出文件的名称
+    filename: &#39;[name].js&#39;,
+    // 为动态加载的 Chunk 配置输出文件的名称
+    chunkFilename: &#39;[name].js&#39;,
+  }
+};
+</code></pre><p>其中最关键的一行是 <code>chunkFilename: &#39;[name].js&#39;</code>,，它专门指定动态生成的 Chunk 在输出时的文件名称。 如果没有这行，分割出的代码的文件名称将会是 <code>[id].js</code>。</p>
+<h2 id="-reactrouter">按需加载与 ReactRouter</h2>
+<p>在实战中，不可能会有上面那么简单的场景，接下来举一个实战中的例子：对采用了 ReactRouter 的应用进行按需加载优化。 这个例子由一个单页应用构成，这个单页应用由两个子页面构成，通过 ReactRouter 在两个子页面之间切换和管理路由。</p>
+<p>这个单页应用的入口文件 <code>main.js</code> 如下：</p>
+<p><p data-height="565" data-theme-id="0" data-slug-hash="KROoWV" data-default-tab="js" data-user="whjin" data-embed-version="2" data-pen-title="main.js" class="codepen">See the Pen <a href="https://codepen.io/whjin/pen/KROoWV/">main.js</a> by whjin (<a href="https://codepen.io/whjin">@whjin</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>以上代码中最关键的部分是 <code>getAsyncComponent</code> 函数，它的作用是配合 ReactRouter 去按需加载组件，具体含义请看代码中的注释。</p>
+<p>由于以上源码需要通过 Babel 去转换后才能在浏览器中正常运行，需要在 Webpack 中配置好对应的 <code>babel-loader</code>，源码先交给 <code>babel-loader</code> 处理后再交给 Webpack 去处理其中的 <code>import(*)</code> 语句。 但这样做后你很快会发现一个问题：Babel 报出错误说不认识 <code>import(*)</code> 语法。 导致这个问题的原因是 <code>import(*)</code> 语法还没有被加入到在使用ES6语言中提到的 ECMAScript 标准中去， 为此我们需要安装一个 Babel 插件 <code>babel-plugin-syntax-dynamic-import</code>，并且将其加入到 <code>.babelrc</code> 中去：</p>
+<pre><code>{
+  &quot;presets&quot;: [
+    &quot;env&quot;,
+    &quot;react&quot;
+  ],
+  &quot;plugins&quot;: [
+    &quot;syntax-dynamic-import&quot;
+  ]
+}
+</code></pre><p>执行 Webpack 构建后，你会发现输出了三个文件：</p>
+<ul>
+<li><code>main.js</code>：执行入口所在的代码块，同时还包括 <code>PageHome</code> 所需的代码，因为用户首次打开网页时就需要看到 <code>PageHome</code> 的内容，所以不对其进行按需加载，以降低用户能感知到的加载时间；</li><li><code>page-about.js</code>：当用户访问 <code>/about</code> 时才会加载的代码块；</li><li><code>page-login.js</code>：当用户访问 <code>/login</code> 时才会加载的代码块。</li></ul>
+<p>同时你还会发现 <code>page-about.js</code> 和 <code>page-login.js</code> 这两个文件在首页是不会加载的，而是会当你切换到了对应的子页面后文件才会开始加载。    </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

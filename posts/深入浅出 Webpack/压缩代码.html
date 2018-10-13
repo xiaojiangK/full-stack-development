@@ -1,0 +1,548 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>压缩代码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 16px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 3px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #eee;
+  color: #00d;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 16px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #42b983;
+  padding: 0 15px;
+  color: #777;
+  background: #f8f8f8;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px; 
+}
+
+table th {
+  font-weight: bold;
+  text-align: center !important;
+  background-color: #9ec68e;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #dff0d8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%;
+}
+
+p > img {
+    display: table;
+    margin: 0 auto;
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1 id="-">压缩代码</h1>
+<p>浏览器从服务器访问网页时获取的 JavaScript、CSS 资源都是文本形式的，文件越大网页加载时间越长。 为了提升网页加速速度和减少网络传输流量，可以对这些资源进行压缩。 压缩的方法除了可以通过 <code>GZIP</code> 算法对文件压缩外，还可以对文本本身进行压缩。</p>
+<p>对文本本身进行压缩的作用除了有提升网页加载速度的优势外，还具有混淆源码的作用。 由于压缩后的代码可读性非常差，就算别人下载到了网页的代码，也大大增加了代码分析和改造的难度。</p>
+<p>下面来一一介绍如何在 Webpack 中压缩代码。</p>
+<h2 id="-javascript">压缩 JavaScript</h2>
+<p>目前最成熟的 JavaScript 代码压缩工具是 UglifyJS ， 它会分析 JavaScript 代码语法树，理解代码含义，从而能做到诸如去掉无效代码、去掉日志输出代码、缩短变量名等优化。</p>
+<p>要在 Webpack 中接入 UglifyJS 需要通过插件的形式，目前有两个成熟的插件，分别是：</p>
+<ul>
+<li><code>UglifyJsPlugin</code>：通过封装 UglifyJS 实现压缩。</li><li><code>ParallelUglifyPlugin</code>：多进程并行处理压缩，使用 <a href="http://webpack.wuhaolin.cn/4%E4%BC%98%E5%8C%96/4-4%E4%BD%BF%E7%94%A8ParallelUglifyPlugin.html">ParallelUglifyPlugin</a> 中有详细介绍。</li></ul>
+<p>由于 ParallelUglifyPlugin 在 4-4使用ParallelUglifyPlugin 中介绍过就不再复述， 这里重点介绍如何配置 UglifyJS 以达到最优的压缩效果。</p>
+<p>UglifyJS 提供了非常多的选择用于配置在压缩过程中采用哪些规则，所有的选项说明可以在 其官方文档 上看到。 由于选项非常多，就挑出一些常用的拿出来详细讲解其应用方式：</p>
+<ul>
+<li><code>sourceMap</code>：是否为压缩后的代码生成对应的 Source Map，默认为不生成，开启后耗时会大大增加。一般不会把压缩后的代码的 Source Map 发送给网站用户的浏览器，而是用于内部开发人员调试线上代码时使用。</li><li><code>beautify</code>： 是否输出可读性较强的代码，即会保留空格和制表符，默认为是，为了达到更好的压缩效果，可以设置为 false。</li><li><code>comments</code>：是否保留代码中的注释，默认为保留，为了达到更好的压缩效果，可以设置为 <code>false</code>。</li><li><code>compress.warnings</code>：是否在 UglifyJs 删除没有用到的代码时输出警告信息，默认为输出，可以设置为 <code>false</code> 以关闭这些作用不大的警告。</li><li><code>drop_console</code>：是否剔除代码中所有的 <code>console</code> 语句，默认为不剔除。开启后不仅可以提升代码压缩效果，也可以兼容不支持 <code>console</code> 语句 IE 浏览器。</li><li><code>collapse_vars</code>：是否内嵌定义了但是只用到一次的变量，例如把 <code>var x = 5; y = x</code>转换成<code>y = 5</code>，默认为不转换。为了达到更好的压缩效果，可以设置为 <code>false</code>。</li><li><code>reduce_vars</code>： 是否提取出出现多次但是没有定义成变量去引用的静态值，例如把 <code>x = &#39;Hello&#39;; y = &#39;Hello&#39;</code> 转换成 <code>var a = &#39;Hello&#39;; x = a; y = b</code>，默认为不转换。为了达到更好的压缩效果，可以设置为 <code>false</code>。</li></ul>
+<p>也就是说，在不影响代码正确执行的前提下，最优化的代码压缩配置为如下：</p>
+<pre><code>const UglifyJSPlugin = require(&#39;webpack/lib/optimize/UglifyJsPlugin&#39;);
+
+module.exports = {
+  plugins: [
+    // 压缩输出的 JS 代码
+    new UglifyJSPlugin({
+      compress: {
+        // 在UglifyJs删除没有用到的代码时不输出警告
+        warnings: false,
+        // 删除所有的 `console` 语句，可以兼容ie浏览器
+        drop_console: true,
+        // 内嵌定义了但是只用到一次的变量
+        collapse_vars: true,
+        // 提取出出现多次但是没有定义成变量去引用的静态值
+        reduce_vars: true,
+      },
+      output: {
+        // 最紧凑的输出
+        beautify: false,
+        // 删除所有的注释
+        comments: false,
+      }
+    }),
+  ],
+};
+</code></pre><p>从以上配置中可以看出 Webpack 内置了 UglifyJsPlugin，需要指出的是 UglifyJsPlugin 当前采用的是 UglifyJS2 而不是老的 UglifyJS1， 这两个版本的 UglifyJS 在配置上有所区别，看文档时注意版本。</p>
+<p>除此之外 Webpack 还提供了一个更简便的方法来接入 UglifyJSPlugin，直接在启动 Webpack 时带上 <code>--optimize-minimize</code> 参数，即 <code>webpack --optimize-minimize</code>， 这样 Webpack 会自动为你注入一个带有默认配置的 UglifyJSPlugin。</p>
+<h2 id="-es6">压缩 ES6</h2>
+<p>虽然当前大多数 JavaScript 引擎还不完全支持 ES6 中的新特性，但在一些特定的运行环境下已经可以直接执行 ES6 代码了，例如最新版的 Chrome、ReactNative 的引擎 JavaScriptCore。</p>
+<p>运行 ES6 的代码相比于转换后的 ES5 代码有如下优点：</p>
+<ul>
+<li>一样的逻辑用 ES6 实现的代码量比 ES5 更少。</li><li>JavaScript 引擎对 ES6 中的语法做了性能优化，例如针对 <code>const</code> 申明的变量有更快的读取速度。</li></ul>
+<p>所以在运行环境允许的情况下，我们要尽可能的使用原生的 ES6 代码去运行，而不是转换后的 ES5 代码。</p>
+<p>在你用上面所讲的压缩方法去压缩 ES6 代码时，你会发现 UglifyJS 会报错退出，原因是 UglifyJS 只认识 ES5 语法的代码。 为了压缩 ES6 代码，需要使用专门针对 ES6 代码的 UglifyES。</p>
+<p>UglifyES 和 UglifyJS 来自同一个项目的不同分支，它们的配置项基本相同，只是接入 Webpack 时有所区别。 在给 Webpack 接入 UglifyES 时，不能使用内置的 UglifyJsPlugin，而是需要单独安装和使用最新版本的 <code>uglifyjs-webpack-plugin</code>。 安装方法如下：</p>
+<pre><code>npm i -D uglifyjs-webpack-plugin@beta
+</code></pre><p>Webpack 相关配置代码如下：</p>
+<p><p data-height="465" data-theme-id="0" data-slug-hash="ELqbWw" data-default-tab="js" data-user="whjin" data-embed-version="2" data-pen-title="Webpack" class="codepen">See the Pen <a href="https://codepen.io/whjin/pen/ELqbWw/">Webpack</a> by whjin (<a href="https://codepen.io/whjin">@whjin</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>同时，为了不让 <code>babel-loader</code> 输出 ES5 语法的代码，需要去掉 <code>.babelrc</code> 配置文件中的 <code>babel-preset-env</code>，但是其它的 Babel 插件，比如 <code>babel-preset-react</code> 还是要保留， 因为正是 <code>babel-preset-env</code> 负责把 ES6 代码转换为 ES5 代码。</p>
+<h2 id="-css">压缩 CSS</h2>
+<p>CSS 代码也可以像 JavaScript 那样被压缩，以达到提升加载速度和代码混淆的作用。 目前比较成熟可靠的 CSS 压缩工具是 cssnano，基于 PostCSS。</p>
+<p><code>cssnano</code> 能理解 CSS 代码的含义，而不仅仅是删掉空格，例如：</p>
+<ul>
+<li><code>margin: 10px 20px 10px 20px</code> 被压缩成 <code>margin: 10px 20px</code></li><li><code>color: #ff0000</code> 被压缩成 <code>color:red</code></li></ul>
+<p>还有很多压缩规则可以去其官网查看，通常压缩率能达到 60%。</p>
+<p>把 <code>cssnano</code> 接入到 Webpack 中也非常简单，因为 <code>css-loader</code> 已经将其内置了，要开启 <code>cssnano</code> 去压缩代码只需要开启 <code>css-loader</code> 的 <code>minimize</code> 选项。 相关 Webpack 配置如下：</p>
+<p><p data-height="565" data-theme-id="0" data-slug-hash="rvXYwm" data-default-tab="js" data-user="whjin" data-embed-version="2" data-pen-title="cssnano" class="codepen">See the Pen <a href="https://codepen.io/whjin/pen/rvXYwm/">cssnano</a> by whjin (<a href="https://codepen.io/whjin">@whjin</a>) on <a href="https://codepen.io">CodePen</a>.</p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

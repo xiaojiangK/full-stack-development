@@ -167,7 +167,7 @@ $("#header_p").mouseover(function () {
     $("#header_p1").html("Resume");
     $("#header_p2").html("前端工程师");
 }).mouseout(function () {
-    $("#header_p1").html("F2E");
+    $("#header_p1").html("xiaojiangK");
     $("#header_p2").html("个人简历");
 });
 //顶部导航取消

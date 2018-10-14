@@ -854,10 +854,15 @@ img#home_photo2 {
     display: block;
     float: left;
     text-align: center;
-    margin: 10px 50px;
+    margin: 5px 0;
     width: 30px;
     height: 30px;
     cursor: pointer;
+    margin-left: 100px;
+}
+
+#exp_timeline a:last-child{
+    margin-left: 130px;
 }
 
 .exp_timeline_title {

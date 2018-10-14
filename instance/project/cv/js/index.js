@@ -1,7 +1,7 @@
 $(function () {
     $.ajax({
         type: "GET",
-        url: "ajax/message.json",
+        url: "https://xiaojiangk.github.io/full-stack-development/instance/project/cv/ajax/message.json",
         dataType: "json",
         success: function (data) {
             data.about_info.forEach(function (item) {
@@ -55,7 +55,7 @@ $(function () {
                 });
             });
             $("aside a").eq(0).addClass("selected").siblings().removeClass("selected");
-            console.log("Hi! 朋友，感谢您阅读我的简历。\n  如果您有什么建议或者想深入学习前端知识，欢迎您加入我们,我们互相学习，共同进步^_^ \n %c QQ小群(http://t.cn/RtlQbTq)", "color: red");
+            console.log("Hi! 朋友，感谢您阅读我的简历。\n  如果您有什么建议或者想深入学习前端知识，欢迎您加入我们,我们互相学习，共同进步^_^ \n %c ", "color: red");
         },
         afterLoad: function (anchorLink, index) {
             if (index == 1) {
@@ -227,7 +227,7 @@ $("#exp_list_toleft").click(function () {
 });
 $("#exp_list_toright").click(function () {
     if (!$("#exp_list_content").is(":animated")) {
-        if (page == 3) {
+        if (page == 2) {
             $("#exp_list_content").animate({left: "-=50"}, 200, function () {
                 $(this).animate({left: "+=50"}, 200);
             });

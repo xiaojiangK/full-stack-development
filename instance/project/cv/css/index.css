@@ -1249,13 +1249,18 @@ footer {
 
 footer div a {
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 3px;
     font-size: 13px;
     color: #666;
 }
 
 footer div a:hover {
     color: #930709;
+}
+
+footer div a img{
+    height: 18px;
+    vertical-align: sub;
 }
 
 @-webkit-keyframes fade_in {

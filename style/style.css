@@ -72,6 +72,12 @@ sup {
     background: #E9ECEF;
 }
 
+.app-footer a img{
+    height: 18px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
 div object {
     display: none;
 }

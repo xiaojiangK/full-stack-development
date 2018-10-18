@@ -590,13 +590,13 @@ img#home_photo2 {
     height: 100px;
     text-align: center;
     margin: 30px auto;
-    webkit-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
     transform: scale(1.0);
     transition: transform .25s;
 }
 
 .skill_icon:hover {
-    webkit-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
     transform: scale(1.2);
     transition: transform .25s;
 }
@@ -799,10 +799,6 @@ img#home_photo2 {
 .exp_list dl {
     margin-left: 140px;
     margin-top: 36px;
-}
-
-.exp_list_first {
-
 }
 
 .exp_list dt {

@@ -856,8 +856,8 @@ img#home_photo2 {
     margin-left: 100px;
 }
 
-#exp_timeline a:last-child{
-    margin-left: 130px;
+#exp_timeline a:first-child{
+    margin-left: 50px;
 }
 
 .exp_timeline_title {

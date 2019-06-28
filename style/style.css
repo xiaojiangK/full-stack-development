@@ -120,6 +120,6 @@ div object {
     margin: 10px 0 0;
 }
 .count-text{
-    display: inline-block;
+    display: inline-block !important;
     margin: 8px 8px 0 0;
 }

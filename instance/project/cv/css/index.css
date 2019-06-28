@@ -1389,4 +1389,6 @@ footer div a img{
 .count-text{
     display: inline-block !important;
     margin: 8px 5px 0 0;
+    font-size: 13px;
+    color: #666;
 }

@@ -119,3 +119,7 @@ div object {
     align-items: center;
     margin: 10px 0 0;
 }
+.count-text{
+    display: inline-block;
+    margin: 8px 8px 0;
+}

@@ -1356,22 +1356,3 @@ footer div a img{
     animation: b_to_t 1s;
     visibility: visible;
 }
-.count-text{
-    display: inline-block !important;
-    margin: 8px 5px 0 0;
-}
-.count-box{
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    -webkit-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-    margin: 10px 0 0;
-}

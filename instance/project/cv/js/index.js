@@ -9,10 +9,10 @@ $(function () {
             });
             $("#skill_info").append("<p>" + data.skill_info + "</p>");
             $(".skill_int").append("<ul></ul>");
-            data.angularJs.forEach(function (item) {
+            data.VueJs.forEach(function (item) {
                 $("#skill_int1 ul").append("<li>" + item + "</li>");
             });
-            data.html.forEach(function (item) {
+            data.php.forEach(function (item) {
                 $("#skill_int2 ul").append("<li>" + item + "</li>");
             });
             data.css.forEach(function (item) {

@@ -12,11 +12,12 @@
     "了解双绑的背后实现",
     "熟练的指令编写"
   ],
-  "html": [
-    "深刻理解Web标准",
-    "熟练运用html标签",
-    "熟悉xml及xhtml标记语言",
-    "掌握html5如SVG，localstorage新特性"
+  "php": [
+    "熟悉Thinkphp3.2/5.0，有商城开发经验",
+    "熟悉memcache、redis等缓存机制，了解后端性能优化",
+    "精通PHP+MYSQL编程，熟练使用Javascrīpt/Ajax以及CSS编写",
+    "基于主流PHP框架（TP/YAF）开发项目，熟悉面向对象的软件设计方法",
+    "熟悉Linux操作，熟练Nginx等Web服务器的配置及优化，可以独立配置生产环境"
   ],
   "css": [
     "熟练运用css及css3新属性",
@@ -28,7 +29,7 @@
     "掌握jQuery",
     "掌握原生JS的编程",
     "注重JavaScript性能优化",
-    "正在学习ES6"
+    "熟练使用ES6"
   ],
   "exp_info": "2015年上半年，开始了web前端自学生涯。",
   "contact_info": [

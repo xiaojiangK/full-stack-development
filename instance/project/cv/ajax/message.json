@@ -13,11 +13,10 @@
     "熟练的指令编写"
   ],
   "php": [
-    "熟悉Thinkphp3.2/5.0，有商城开发经验",
-    "熟悉memcache、redis等缓存机制，了解后端性能优化",
-    "精通PHP+MYSQL编程，熟练使用Javascrīpt/Ajax以及CSS编写",
-    "基于主流PHP框架（TP/YAF）开发项目，熟悉面向对象的软件设计方法",
-    "熟悉Linux操作，熟练Nginx等Web服务器的配置及优化，可以独立配置生产环境"
+    "熟悉Thinkphp3.2/5.0",
+    "熟悉memcache、redis等缓存机制",
+    "基于主流PHP框架（TP/YAF）开发项目",
+    "精通PHP+MYSQL编程，熟练使用JS/Ajax编写"
   ],
   "css": [
     "熟练运用css及css3新属性",

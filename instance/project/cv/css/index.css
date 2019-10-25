@@ -852,11 +852,11 @@ img#home_photo2 {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    margin-left: 100px;
+    margin-left: 165px;
 }
 
 #exp_timeline a:first-child{
-    margin-left: 50px;
+    margin-left: 80px;
 }
 
 .exp_timeline_title {

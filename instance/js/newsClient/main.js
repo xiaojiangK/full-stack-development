@@ -581,7 +581,7 @@ function getNewsDate(index) {
 
         PAGE_ID = pageId;
         loadXMLDoc({
-            url: "https://xiaojiangK.github.io/full-stack-development/instance/js/newsClient/json/" + pageId + ".json",
+            url: "https://xiaojiangk.gitee.io/full-stack-development/instance/js/newsClient/json/" + pageId + ".json",
             success: function (json) {
                 var html = "";
 

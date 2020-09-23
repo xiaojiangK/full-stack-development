@@ -1,7 +1,7 @@
 $(function () {
     $.ajax({
         type: "GET",
-        url: "https://xiaojiangk.github.io/full-stack-development/instance/project/cv/ajax/message.json",
+        url: "https://xiaojiangk.gitee.io/full-stack-development/instance/project/cv/ajax/message.json",
         dataType: "json",
         success: function (data) {
             data.about_info.forEach(function (item) {

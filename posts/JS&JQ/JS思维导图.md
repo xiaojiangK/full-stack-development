@@ -1,4 +1,4 @@
-﻿>站点:[全栈开发](https://xiaojiangK.github.io/full-stack-development/)
+﻿>站点:[全栈开发](https://xiaojiangk.gitee.io/full-stack-development/)
 
 # JS思维导图 #
 
